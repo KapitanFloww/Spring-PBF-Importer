@@ -1,0 +1,27 @@
+# Application Specific Configuration
+application:
+  import:
+    enabled: true
+    directory: "import-data"
+
+# Spring Configuration
+spring:
+  application:
+    name: OSM-Commons
+    async:
+      enabled: true
+
+  # Database Settings
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+# Logging Configuration
+logging:
+  level:
+    ROOT: info
+    de.flowwindustries.osm.commons: debug
