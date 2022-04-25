@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Camera entity to be extracted and persisted from the .pbf-files.
+ */
 @Data
 @Entity
 public class Camera {

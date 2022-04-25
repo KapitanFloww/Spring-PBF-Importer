@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -14,8 +15,12 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Locale;
 
+/**
+ * Importer to be executed on startup when {@code application.import.enabled} is set to {@code true}.
+ * Looks for .pbf-files inside {@code application.import.directory} and for each performs an import operation.
+ */
 @Slf4j
-@Service
+@Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(name = "application.import.enabled", havingValue = "true")
 public class DirectoryImporter {
